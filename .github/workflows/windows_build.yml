@@ -1,10 +1,10 @@
-name: ubuntu_build
+name: windows_build
 on:
   - push
   - pull_request
 
 jobs:
-  build_ubuntu:
+  build_windows:
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -14,7 +14,7 @@ jobs:
         julia-arch:
           - x64
         os:
-          - ubuntu-latest
+          - windows-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -40,4 +40,4 @@ jobs:
             Pkg.add("BinaryBuilder")
           '
       - run: |
-          julia --color=yes build_tarballs.jl --verbose x86_64-linux-gnu
+          julia --color=yes build_tarballs.jl --verbose x86_64-w64-mingw32

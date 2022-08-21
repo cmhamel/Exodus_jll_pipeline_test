@@ -37,7 +37,7 @@ jobs:
       - run: |
           julia --color=yes -e '
             import Pkg
-            Pkg.add("BinaryBuilder.jl")
+            Pkg.add("BinaryBuilder")
           '
       - run: |
           julia --color=yes build_tarballs.jl --verbose x86_64-linux-gnu

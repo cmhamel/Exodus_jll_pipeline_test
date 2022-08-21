@@ -35,4 +35,9 @@ jobs:
             ${{ runner.os }}-test-
             ${{ runner.os }}-
       - run: |
+          julia --color=yes -e '
+            import Pkg
+            Pkg.add("BinaryBuilder.jl")
+          '
+      - run: |
           julia --color=yes build_tarballs.jl --verbose x86_64-linux-gnu
